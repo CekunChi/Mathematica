@@ -5,12 +5,12 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 
 
 ClearAll["Global`*"];
-
+(*version 1*)
 Plus @@ DeleteDuplicates[
   Flatten[{Range[3, 999, 3], Range[5, 999, 5]}]]
   
-  
+(*version 2*)  
   Total@Select[Range@999, Or[Mod[#, 3] == 0, Mod[#, 5] == 0] &]
   
-  
+ (*version 3*)
   Total@Cases[Range@999, x_ /; Or[Mod[x, 3] == 0, Mod[x, 5] == 0]](*模式匹配*）
